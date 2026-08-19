@@ -9,10 +9,6 @@ super + d
 super + Tab
 	rofi -show window
 
-# XMenu on right-click
-~button3
-	if [ -z "$(xdotool getwindowfocus 2>/dev/null)" ]; then ~/.config/bspwm/scripts/xmenu.sh; fi
-
 # Reload sxhkd
 super + Escape
 	pkill -USR1 -x sxhkd
