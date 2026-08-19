@@ -1,23 +1,19 @@
-# =============================================================================
-# WM & Core Shortcuts
-# =============================================================================
-
 # Terminal
-super + Return
+super + Terminal
 	wezterm
 
-# Program Launcher (Rofi / Dmenu)
+# Program Launcher
 super + d
 	rofi -show drun
-	
+
 super + Tab
 	rofi -show window
 
-# Open XMenu on empty desktop right-click
+# XMenu on right-click
 ~button3
 	if [ -z "$(xdotool getwindowfocus 2>/dev/null)" ]; then ~/.config/bspwm/scripts/xmenu.sh; fi
 
-# Reload sxhkd configuration
+# Reload sxhkd
 super + Escape
 	pkill -USR1 -x sxhkd
 
@@ -33,7 +29,7 @@ super + shift + r
 super + shift + q
 	bspc node -c
 
-# Kill window forcefully
+# Kill window
 super + shift + a
 	bspc node -k
 
@@ -41,41 +37,37 @@ super + shift + a
 super + shift + x
 	slock
 
-# Launch Flameshot
+# Flameshot
 super + Print
 	flameshot gui
 
-# =============================================================================
 # Window Navigation & Movement
-# =============================================================================
 
-# Focus window in given direction (hjkl & arrows)
+# Focus window direction
 super + {h,j,k,l}
 	bspc node -f {west,south,north,east}
 
 super + {Left,Down,Up,Right}
 	bspc node -f {west,south,north,east}
 
-# Move window in given direction (Shift + hjkl & arrows)
+# Move window direction
 super + shift + {h,j,k,l}
 	bspc node -s {west,south,north,east}
 
 super + shift + {Left,Down,Up,Right}
 	bspc node -s {west,south,north,east}
 
-# =============================================================================
 # Layouts & Window States
-# =============================================================================
 
-# Toggle Floating state (i3 default: Super + Shift + Space)
+# Toggle Floating
 super + shift + space
-	bspc node -t \~floating
+	bspc node -t ~floating
 
-# Toggle Fullscreen (i3 default: Super + f)
+# Toggle Fullscreen
 super + f
-	bspc node -t \~fullscreen
+	bspc node -t ~fullscreen
 
-# Set split directional presel (horizontal / vertical split like i3's Mod+h / Mod+v)
+# Split directional presel
 super + b
 	bspc node -p west
 super + v
@@ -85,50 +77,44 @@ super + v
 super + ctrl + space
 	bspc query -N -d | xargs -I id bspc node id -p cancel
 
-# Toggle layout modes (Tiling / Monocle/Tabbed)
+# Toggle layout modes
 super + s
 	bspc desktop -l next
 
-# Toggle Pseudo-Tiled state
+# Toggle Pseudo-Tiled
 super + shift + p
-	bspc node -t \~pseudo_tiled
+	bspc node -t ~pseudo_tiled
 
-# Toggle Window Flags (Sticky / Locked / Private)
+# Window Flags (Sticky / Locked / Private)
 super + alt + {s,l,p}
 	bspc node -g {sticky,locked,private}
 
-# =============================================================================
-# Workspaces (Focus & Send)
-# =============================================================================
+# Workspaces
 
 # Switch to workspace 1-9
 super + {1-9,0}
 	bspc desktop -f '^{1-9,10}'
 
-# Send window to workspace 1-9
+# Send window to workspace
 super + shift + {1-9,0}
 	bspc node -d '^{1-9,10}'
 
-# Switch to previous / next workspace
+# Previous / next workspace
 super + {comma,period}
 	bspc desktop -f {prev,next}.local
 
-# =============================================================================
-# Window Resizing (i3 Resize Mode Emulation)
-# =============================================================================
+# Window Resizing
 
-# Resize window edges with Alt + hjkl
+# Resize with Alt + hjkl
 super + alt + {h,j,k,l}
 	bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
 
 super + alt + shift + {h,j,k,l}
 	bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
 
-# =============================================================================
-# Media & Hardware Keys (Volume & Brightness)
-# =============================================================================
+# Media & Hardware Keys
 
-# Audio Volume Controls
+# Audio Volume
 XF86AudioRaiseVolume
 	pactl set-sink-volume @DEFAULT_SINK@ +10%
 
@@ -141,7 +127,7 @@ XF86AudioMute
 XF86AudioMicMute
 	pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-# Screen Brightness Controls
+# Screen Brightness
 XF86MonBrightnessUp
 	brightnessctl s +5%
 

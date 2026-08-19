@@ -21,7 +21,7 @@ bspc rule -a mplayer2 state=floating
 bspc rule -a Kupfer.py focus=on
 bspc rule -a Screenkey manage=off
 
-# Window Border Colors (matching your i3 scheme)
+# Window Border Colors
 bspc config focused_border_color     "#005577"
 bspc config normal_border_color      "#222222"
 bspc config active_border_color      "#222222"
@@ -37,7 +37,7 @@ pgrep -x picom > /dev/null || picom -b &
 # Launch Polybar
 $HOME/.config/polybar/launch.sh &
 
-# Set wallpaper (if using feh or nitrogen)
+# Set wallpaper
 # ~/.fehbg &
 nitrogen --restore &
 # Autostart applications
