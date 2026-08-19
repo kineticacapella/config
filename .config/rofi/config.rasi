@@ -1,0 +1,75 @@
+configuration {
+    modi: "drun,run,window";
+    font: "JetBrains Mono 10";
+    show-icons: false;
+}
+
+@theme "/dev/null"
+
+* {
+    bg: #000000CC;
+    bg-alt: #000000CC;
+    fg: #eeeeee;
+    accent: #005577;
+    disabled: #555555;
+
+    background-color: transparent;
+    text-color: @fg;
+    margin: 0;
+    padding: 0;
+    spacing: 0;
+}
+
+window {
+    background-color: @bg;
+    width: 40%;
+    height: 40%;
+    border: 2px;
+    border-color: @accent;
+    padding: 10px;
+}
+
+mainbox {
+    background-color: transparent;
+}
+
+inputbar {
+    background-color: transparent;
+    children: [entry];
+    /* Set horizontal padding to 0px so 'entry' aligns directly with list elements below */
+    padding: 6px 0px;
+}
+
+entry {
+    background-color: transparent;
+    placeholder: "Search...";
+    placeholder-color: @disabled;
+    /* 14px left padding matches element padding (14px) exactly */
+    padding: 0px 14px;
+}
+
+listview {
+    background-color: transparent;
+    dynamic: true;
+    lines: 8;
+    columns: 1;
+    padding: 10px 0px 0px 0px;
+    spacing: 10px;
+}
+
+element {
+    background-color: transparent;
+    /* 3px top/bottom + ~14px font height = 20px selector box */
+    padding: 3px 14px; 
+}
+
+element-text {
+    background-color: transparent;
+    text-color: inherit;
+    vertical-align: 0.5;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: #ffffff;
+}
